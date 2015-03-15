@@ -1,0 +1,17 @@
+
+/**  Navbar **/
+body.cover {
+    background-color: #3D4C53;
+    background-image: none;
+}
+
+
+.login-wrap .brand {
+    color: #97C03D;
+    height: 43px;
+    padding: 0 0 0 40px;
+    background: url('logo.png') no-repeat 5px 13px;
+    font-size: 36px;
+    text-align: left;
+    text-shadow: none;
+}

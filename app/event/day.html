@@ -1,0 +1,66 @@
+﻿<section data-ng-controller="tba.event.day">
+    <div data-ng-include="'/app/event/secondarynav.html'"></div>
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="day-calendar" class="agenda-day"></div>
+            </div>
+            <div class="col-sm-6 ">
+                <div class="panel" data-ng-if="event">
+                    <div class="panel-heading stats">
+                        <span class="pull-right stat"><span class="fa fa-clock-o"></span>&nbsp;{{event.timeLabel}}</span>
+                        <span class="pull-left stat"><span class="value">{{event.duration}}</span></span>
+                    </div>
+                    <form class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="eventTitle">Title</label>
+                                    <input type="text" class="form-control" data-ng-readonly="event.complete" id="eventTitle" data-ng-model="event.title" placeholder="Enter title" data-ng-blur="updateEvent(event)" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Project</label>
+                                    <select class="form-control" ng-model="event.project" data-ng-readonly="event.complete" ng-options="p.title for p in event.entitledProjects" data-ng-blur="updateEvent(event)"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Details</label>
+                            <textarea class="form-control" rows="4" data-ng-readonly="event.complete" style="overflow: hidden; word-wrap: break-word; resize: vertical; height: 52px;" data-ng-model="event.description" data-ng-blur="updateEvent(event)"></textarea>
+                        </div>
+                        <div class="form-group" data-ng-if="event.complete || event.inProgress">
+                            <label>Actions</label>
+                            <textarea class="form-control" rows="4" data-ng-readonly="event.complete" style="overflow: hidden; word-wrap: break-word; resize: vertical; height: 52px;" data-ng-model="event.action" data-ng-blur="updateEvent(event)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group  pull-right" data-ng-if="showLateNotification">
+
+                                <span>Late by:&nbsp;&nbsp;</span>
+                                <div class=" btn-group">
+                                    <button type="button" class="btn btn-default" data-ng-click="late(15, event)" data-ng-class="{active:(minutesLate===15)}">15 mins</button>
+                                    <button type="button" class="btn btn-default" data-ng-click="late(30, event)" data-ng-class="{active:(minutesLate===30)}">30 mins</button>
+                                    <button type="button" class="btn btn-default" data-ng-click="late(45, event)" data-ng-class="{active:(minutesLate===45)}">45 mins</button>
+                                    <button type="button" class="btn btn-default" data-ng-click="late(60, event)" data-ng-class="{active:(minutesLate===60)}">60 mins</button>
+                                </div>
+                            </div>
+                            <div class="btn-group" data-ng-if="!event.complete && !event.inProgress">
+                                <button type="button" class="btn btn-primary" data-ng-click="startEvent(event)">Start</button>
+                                <button type="button" class="btn btn-danger" data-ng-click="toggleLateNofitication()" data-ng-class="{active:showLateNotification}">Late Notification</button>
+                            </div>
+                        </div>
+                        <div class="form-group" data-ng-if="minutesLate">
+                            <button type="button" class="btn btn-primary pull-right" data-ng-click="sendLateMessage()">Send</button>
+                            <label>Text message to: {{lateMessageTo}} <span class="pull-right">{{lastMessagePhone}}</span></label>
+                            <textarea class="form-control" rows="2" style="overflow: hidden; word-wrap: break-word; resize: vertical; height: 52px;" data-ng-model="lateMessage"></textarea>
+                        </div>
+                        <div class="form-group clearfix" data-ng-if="event.inProgress">
+                            <button type="button" class="btn btn-primary pull-right" data-ng-click="completeEvent(event)">Complete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

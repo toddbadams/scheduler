@@ -1,0 +1,27 @@
+﻿<div class="container-fluid" data-ng-controller="event">
+    <div class="row">
+        <form>
+            <div class="col-md-4 col-sm-7 sidebar">
+                <h4>When</h4>
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+                <div class="calendar" data-ng-model="vm.eventSources" data-calendar="vm.myCalendar"
+                     data-config="vm.uiConfig.calendar" data-ui-calendar="vm.uiConfig.calendar"></div>
+            </div>
+            <div class="col-md-8 col-sm-7">
+
+                <textarea maxlength="4000" placeholder="Add a description" aria-label="Add a description" ></textarea>
+
+
+                <div>
+                    <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

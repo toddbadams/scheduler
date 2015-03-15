@@ -1,0 +1,39 @@
+﻿<div data-ng-controller="tbaShell as vm">
+    <nav class="navbar navbar-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">{{vm.brand}}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus"></i>&nbsp;New</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-ng-repeat="r in vm.newNavItems"><a data-ng-href="#{{r.path}}">{{r.config.nav.label}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle avatar pull-right" data-toggle="dropdown">
+                            <img data-ng-src="/images/{{vm.loggedInUser.imageSource}}" alt="{{vm.loggedInUser.fullName}}" class="img-avatar" />
+                            <span class="hidden-small">{{vm.loggedInUser.fullName}}</span>
+                        </a>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li data-ng-repeat="u in vm.loggedInUser.users" data-ng-class="active:u.active">
+                                <a href="javascript:void(0)" data-ng-click="vm.selectUser(u)">{{u.fullName}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="content">
+        <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">
+            <div data-tba-spinner="vm.spinnerOptions"></div>
+            <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>
+        </div>
+        <div data-ng-view class="shuffle-animation"></div>
+    </section>
+</div>

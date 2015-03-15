@@ -1,0 +1,15 @@
+﻿<nav class="navbar-secondary" role="navigation">
+    <div class="container-fluid">
+        <div class="btn-group">
+            <a class="btn btn-default" data-ng-click="prev()" href="javascript:void(0);"><span class="fa fa-chevron-left"></span></a>
+            <a class="btn btn-default" data-ng-click="next()" href="javascript:void(0);"><span class="fa fa-chevron-right"></span></a>
+        </div>
+        <h3>&nbsp;&nbsp;{{title}}</h3>
+        <div class="btn-group pull-right">
+            <a class="btn btn-primary" data-ng-class="{active:view.month}" href="/#/month">Month</a>
+            <a class="btn btn-primary" data-ng-class="{active:view.week}" href="/#/week">Week</a>
+            <a class="btn btn-primary" data-ng-class="{active:view.day}" href="/#/day">Day</a>
+            <a class="btn btn-primary" data-ng-class="{active:view.search}" href="/#/search"><i class="fa fa-search fa-fw"></i></a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,43 @@
+﻿<section data-ng-controller="tba.event.search">
+    <div data-ng-include="'/app/event/secondarynav.html'"></div>
+    <div class="search active main-content" style="padding-top: 0;">
+        <div class="row">
+            <div class="search-form">
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" data-ng-model="searchText"placeholder="Search">
+                            <span class="input-group-addon" data-ng-click="search()">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control select2">
+                                    <option value="">Filter by project</option>
+                                    <option data-ng-repeat="project in user.projects" value="project">{{project.title}}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary pull-right">Filter Results</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="list-group">
+                <a href="#" class="list-group-item" data-ng-repeat="event in results">
+                    <h4 class="list-group-item-heading">{{event.title}}</h4>
+                    <p class="list-group-item-text">{{event.description}}</p>
+                    <p class="list-group-item-text" data-ng-if="event.complete">{{event.action}}</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,115 @@
+﻿<section class="container" data-ng-controller="tba.user as vm">
+
+    <br />
+    <div class="row">
+        <div class="col-md-3 col-lg-2">
+            <img data-ng-src="/images/{{vm.user.imageSource}}" alt="{{vm.user.fullName}}" class="img-circle" /><br />
+            <h3 class="profile-title">{{vm.user.fullName}}</h3>
+            <!--<a href="javascript:void(0)" data-ng-click="vm.editImage()" data-toggle="tooltip" data-placement="left" title="Edit">Change picture</a>-->
+        </div>
+
+        <div class="col-md-9 col-lg-10">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <div class="panel-actions">
+                                <a href="javascript:void(0)" data-ng-if="!vm.aboutEdit"  data-ng-click="vm.aboutEdit=true" class="pull-right" data-toggle="tooltip" data-placement="left" title="Edit"><i class="fa fa-edit"></i> Edit about</a>
+                                <a href="javascript:void(0)" data-ng-if="vm.aboutEdit"  data-ng-click="vm.aboutEdit=false" class="pull-right" data-toggle="tooltip" data-placement="left" title="Save"><i class="fa fa-save"></i> Save</a>
+                            </div>
+                            <h3 class="panel-title">About Me</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p data-ng-if="!vm.aboutEdit">{{vm.user.about}}</p>
+                            <form data-ng-if="vm.aboutEdit">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="4" style="overflow: hidden; word-wrap: break-word; resize: vertical; height: 52px;" data-ng-model="vm.user.about">{{vm.user.about}}</textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <div class="panel-actions">
+                                <a href="javascript:void(0)" data-ng-click="vm.edit(vm.currentUser)" class="panel-action" data-toggle="tooltip" data-placement="left" title="Edit"><i class="fa fa-edit"></i> Edit information</a>
+                            </div>
+                            <h3 class="panel-title">Information</h3>
+                        </div>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Email Address</td>
+                                    <td>{{vm.user.email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Cellular Telephone</td>
+                                    <td>{{vm.user.mobile}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Member Since</td>
+                                    <td>{{vm.user.memberSince}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-actions">
+                                <a href="javascript:void(0)" data-ng-click="vm.editHours(vm.currentUser)" class="panel-action" data-toggle="tooltip" data-placement="left" title="Edit"><i class="fa fa-edit"></i> Edit working hours</a>
+                            </div>
+                            <h3 class="panel-title">Working Hours</h3>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Sunday</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                    <th>Saturday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Start</td>
+                                    <td></td>
+                                    <td>8:00 am</td>
+                                    <td>8:00 am</td>
+                                    <td>10:00 am</td>
+                                    <td>8:00 am</td>
+                                    <td>8:00 am</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>End</td>
+                                    <td></td>
+                                    <td>5:00 pm</td>
+                                    <td>5:00 pm</td>
+                                    <td>7:00 pm</td>
+                                    <td>5:00 pm</td>
+                                    <td>5:00 pm</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

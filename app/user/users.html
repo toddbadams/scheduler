@@ -1,0 +1,62 @@
+﻿<section class="body" data-ng-controller="users">
+    <aside class=" sidebar">
+        <ul class="nav nav-stacked">
+            <li style="height: 28px; background-color: #eaeaea; padding-top: 5px;"><i class="fa fa-fw fa-user"></i> Users <i class="fa fa-fw fa-plus pull-right" ng-click="vm.addUser()" style="padding: 3px 3px 0 0;"></i></li>
+            <li data-ng-repeat="user in vm.users" data-ng-class="{active : vm.isCurrentUser(user.id)}" data-ng-click="vm.selectUser(user)">
+                <a href="javascript:void(0)">{{user.fullName}}</a>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="input-group" style="background: #f7f7f7;">
+                    <span class="input-group-addon">{{vm.selectedUser.fullName}}</span>
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><i class="fa fa-fw fa-mobile-phone"></i></button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-offset-1">
+                <div class="btn-group pull-right" dropdown is-open="vm.isopen">
+                    <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+                        {{vm.view}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="javascript:void(0)" ng-click="vm.changeView('Day','agendaDay')">Day</a></li>
+                        <li><a href="javascript:void(0)" ng-click="vm.changeView('Week','agendaWeek')">Week</a></li>
+                        <li><a href="javascript:void(0)" ng-click="vm.changeView('Month','month')">Month</a></li>
+                        <li><a href="javascript:void(0)" ng-click="vm.changeView('List','month')">List</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="calendar"
+                 data-ng-show="vm.view!=='List'"
+                 data-calendar="calendar"
+                 data-config="vm.uiConfig.calendar"
+                 data-ui-calendar="vm.uiConfig.calendar"></div>
+
+            <table class="table table-hover table-striped" data-ng-show="vm.view==='List'">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Start</th>
+                        <th>End</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="e in vm.events">
+                        <td>{{e.title}}</td>
+                        <td>{{e.start | date : 'fullDate'}}</td>
+                        <td>{{e.end | date : 'shortTime'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

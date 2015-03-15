@@ -1,0 +1,85 @@
+﻿<div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-ng-click="cancel()">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="checkbox">
+            <label class="pull-right">
+                <span class="checker">
+                    <span ng-class="{checked: vm.includeWeekends}">
+                        <input type="checkbox" data-ng-model="vm.includeWeekends"/>
+                    </span>
+                </span> Include weekends
+            </label>
+            <label class="pull-left">
+                <span class="checker">
+                    <span ng-class="{checked: vm.applyToAllDays}">
+                        <input type="checkbox" data-ng-model="vm.applyToAllDays">
+                    </span>
+                </span> Apply to all days
+            </label>
+        </div>
+        <div class="checkbox">
+        </div>
+        <div class="clearfix"></div>
+        <div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Start</th>
+                        <th>End</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-show="vm.applyToAllDays">
+                        <td>All</td>
+                        <td><timepicker ng-model="vm.all.start" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                        <td><timepicker ng-model="vm.all.end" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                    </tr>
+                    <tr data-ng-hide="vm.applyToAllDays">
+                        <td>Monday</td>
+                        <td><timepicker ng-model="vm.monday.start" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                        <td><timepicker ng-model="vm.monday.end" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                    </tr>
+                    <tr data-ng-hide="vm.applyToAllDays">
+                        <td>Tuesday</td>
+                        <td><timepicker ng-model="vm.tuesday.start" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                        <td><timepicker ng-model="vm.tuesday.end" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                    </tr>
+                    <tr data-ng-hide="vm.applyToAllDays">
+                        <td>Wednesday</td>
+                        <td><timepicker ng-model="vm.wednesday.start" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                        <td><timepicker ng-model="vm.wednesday.end" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                    </tr>
+                    <tr data-ng-hide="vm.applyToAllDays">
+                        <td>Thursday</td>
+                        <td><timepicker ng-model="vm.thrusday.start" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                        <td><timepicker ng-model="vm.thrusday.end" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                    </tr>
+                    <tr data-ng-hide="vm.applyToAllDays">
+                        <td>Friday</td>
+                        <td><timepicker ng-model="vm.friday.start" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                        <td><timepicker ng-model="vm.friday.end" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                    </tr>
+                    <tr data-ng-show="vm.includeWeekends && !vm.applyToAllDays">
+                        <td>Saturday</td>
+                        <td><timepicker ng-model="vm.saturday.start" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                        <td><timepicker ng-model="vm.saturday.end" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                    </tr>
+                    <tr data-ng-show="vm.includeWeekends && !vm.applytoalldays">
+                        <td>Sunday</td>
+                        <td><timepicker ng-model="vm.sunday.start" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                        <td><timepicker ng-model="vm.sunday.end" ng-change="changed()" hour-step="vm.hourStep" minute-step="vm.minuteStep" show-meridian="ismeridian"></timepicker></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-ng-click="ok()">Save</button>
+        <button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+    </div>
+</div>
+

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="tba">
+<head>
+    <style>
+        .ng-hide {
+            display: none !important;
+        }
+    </style>
+    <title data-ng-bind="title">Scheduler</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link href="build/app.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div data-ng-controller="tba.shell as vm">
+        <nav class="navbar navbar-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Scheduler&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle avatar pull-right" data-toggle="dropdown">
+                                <img data-ng-src="/images/{{vm.loggedInUser.imageSource}}" alt="{{vm.loggedInUser.fullName}}" class="img-avatar" />
+                                <span class="hidden-small">{{vm.loggedInUser.fullName}}</span>
+                            </a>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li>
+                                    <a href="/#/settings">settings</a>
+                                </li>
+                                <li>
+                                    <a href="/#/history">history</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li data-ng-repeat="u in vm.loggedInUser.users">
+                                    <a href="javascript:void(0)">as {{u.fullName}}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="/login.html">logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section id="content">
+            <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">
+                <div data-tba-spinner="vm.spinnerOptions"></div>
+                <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>
+            </div>
+            <div data-ng-view class="shuffle-animation"></div>
+        </section>
+    </div>
+    <!-- jQuery -->
+    <script src="scripts/jquery-2.1.1.min.js"></script>
+    <!-- Angular -->
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-animate.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-sanitize.min.js"></script>
+    <!-- Angular UI -->
+    <script src="scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <!-- Misc Vendor -->
+    <script src="scripts/toastr.min.js"></script>
+    <script src="scripts/moment.min.js"></script>
+    <script src="scripts/spin.min.js"></script>
+    <script src="scripts/fullcalendar.min.js"></script>
+
+    <!-- Application  -->
+    <script src="app/app.js"></script>
+    <script src="app/core/tba.core.log.js"></script>
+    <script src="app/core/tba.core.spin.js"></script>
+    <script src="app/core/tba.core.fakes.js"></script>
+    <script src="app/core/tba.core.dom.js"></script>
+    <script src="app/core/tba.core.async.js"></script>
+    <script src="app/core/tba.core.array.js"></script>
+
+    <script src="app/user/tba.user.controller.js"></script>
+    <script src="app/user/tba.user.history.controller.js"></script>
+    <script src="app/user/tba.user.service.js"></script>
+
+
+    <script src="app/shell/tba.shell.js"></script>
+    <script src="app/shell/blank.js"></script>
+
+    <script src="app/project/tba.project.service.js"></script>
+
+    <script src="app/event/tba.event.calendar.service.js"></script>
+    <script src="app/event/tba.event.day.controller.js"></script>
+    <script src="app/event/tba.event.search.controller.js"></script>
+    <script src="app/event/tba.event.month.controller.js"></script>
+    <script src="app/event/tba.event.service.js"></script>
+    <script src="app/event/tba.event.week.controller.js"></script></body>
+</html>

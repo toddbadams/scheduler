@@ -1,0 +1,29 @@
+﻿<section class="container" data-ng-controller="projects as vm">
+    <div class="row">
+            <div class="panel panel-default" data-ng-repeat="p in vm.projects">
+                <div data-tba-panel-header title="{{p.name}}"
+                     data-menu="p.actions"
+                     data-allow-collapse="true"></div>
+                <div class="panel-body">
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Brief Description</th>
+                                <th>Technician</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="e in p.events">
+                                <td>{{e.start | date:'MMM dd, yyyy h:mm a'}}</td>
+                                <td>{{e.title}}</td>
+                                <td>{{e.technician}}</td>
+                                <td>{{e.status}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</section>
