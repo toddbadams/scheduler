@@ -223,6 +223,7 @@ function eventService(async, fakes, array, log, userService, projectService) {
     }
 
     function getEventDuration(e) {
+        if(!e.end || !e.start) return '';
         return moment.duration(e.end.diff(e.start)).humanize();
     }
 }
