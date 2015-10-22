@@ -1,3 +1,4 @@
+(function(){
 var _tbaProjectServiceId = 'tba.project.service';
 angular.module('tba')
     .factory(_tbaProjectServiceId, ['tba.core.async', 'tba.core.fakes', 'tba.core.array', projectService]);
@@ -91,3 +92,4 @@ function projectService(async, fakes, array) {
         p.enableTextMessages = updates.enableTextMessages;
     }
 }
+})();

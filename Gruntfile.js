@@ -5,13 +5,7 @@
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             coreModule: {
-                options: {
-                    banner: "(function (window, document, angular) {\r\n" +
-                        "'use strict';\r\n",
-                    footer: "\r\n})(window, document, angular);\r\n"
-                },
                 src: ['app/app.js',
-                    'app/templates.js',
                     'app/core/tba.core.log.js',
                     'app/core/tba.core.spin.js',
                     'app/core/tba.core.fakes.js',

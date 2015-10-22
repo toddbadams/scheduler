@@ -1,4 +1,5 @@
-var _tbaEventServiceId = 'tba.event.service';
+(function(){
+    var _tbaEventServiceId = 'tba.event.service';
 angular.module('tba')
     .factory(_tbaEventServiceId, ['tba.core.async', 'tba.core.fakes', 'tba.core.array', 'tba.core.log',
         'tba.user.service', 'tba.project.service', eventService]);
@@ -225,3 +226,5 @@ function eventService(async, fakes, array, log, userService, projectService) {
         return moment.duration(e.end.diff(e.start)).humanize();
     }
 }
+
+})();

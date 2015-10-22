@@ -1,4 +1,5 @@
-﻿angular.module('tba')
+﻿(function(){
+angular.module('tba')
     .factory('tba.core.dom', ['$document', spinFactory]);
 
 /********************************************************************/
@@ -22,3 +23,5 @@ function spinFactory($document) {
     }
 
 }
+
+})();

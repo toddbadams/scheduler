@@ -2714,7 +2714,7 @@ be a descendant of the grid when it is being dragged.
  */
 html,
 body {
-  height: 100%;
+ /* height: 100%; */
 }
 html {
   overflow-x: hidden!important;
@@ -3534,7 +3534,7 @@ a:focus {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #ffffff;
+  background-color: transparent;
   border-color: #eeeeee;
 }
 .nav.nav-tabs .open > .dropdown-toggle {
@@ -5826,7 +5826,6 @@ body.cover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     opacity: .9;
     pointer-events: auto;
     -webkit-backface-visibility: hidden;
@@ -5838,14 +5837,7 @@ body.cover {
     -moz-transition: opacity 0.3s linear;
     -o-transition: opacity 0.3s linear;
     transition: opacity 0.3s linear;
-    background: #3D4C53; /* Old browsers */
-    background: -moz-linear-gradient(top, #586d77 0%, #3d4c53 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#586d77), color-stop(100%,#3d4c53)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #586d77 0%,#3d4c53 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #586d77 0%,#3d4c53 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #586d77 0%,#3d4c53 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #586d77 0%,#3d4c53 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#586d77', endColorstr='#3d4c53',GradientType=0 ); /* IE6-9 */
+   
 }
 
 .page-splash-message {
@@ -5902,3 +5894,13 @@ body.cover {
     top: auto !important;
 }
 /*#endregion*/
+.user {
+	color: white;
+	margin-left: 5px;
+}
+.user:hover {
+	color: white;
+}
+.user:focus {
+	background-color: transparent;
+}

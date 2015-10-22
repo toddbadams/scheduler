@@ -1,4 +1,5 @@
-﻿
+﻿(function(){
+    
 var _tbaEventMonthControllerId = 'tba.event.month';
 angular.module('tba')
     .controller(_tbaEventMonthControllerId, ['$scope', 'tba.event.calendar.service', month]);
@@ -18,3 +19,5 @@ function month(vm, calendar) {
 
     window.month = vm;
 }
+
+})();

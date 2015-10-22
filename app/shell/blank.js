@@ -1,4 +1,5 @@
-﻿var _tbaBlankControllerId = 'tba.shell.blank';
+﻿(function(){
+var _tbaBlankControllerId = 'tba.shell.blank';
 angular.module('tba')
     .controller(_tbaBlankControllerId, ['tba.core.async', 'tba.core.log', 'settings', blank]);
 
@@ -19,3 +20,4 @@ function blank(async, log, settings) {
     }
 
 }
+})();

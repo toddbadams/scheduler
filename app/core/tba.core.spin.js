@@ -1,4 +1,5 @@
-﻿var _tbaCoreSpinServiceId = 'tba.core.spin';
+﻿(function(){
+var _tbaCoreSpinServiceId = 'tba.core.spin';
 
 angular.module('tba')
     .factory(_tbaCoreSpinServiceId, ['$rootScope', spinFactory]);
@@ -50,3 +51,5 @@ function spinDirective($window) {
         }, true);
     }
 }
+
+})();

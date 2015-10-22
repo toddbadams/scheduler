@@ -1,4 +1,5 @@
-﻿
+﻿(function(){
+    
 var _tbaEventSearchControllerId = 'tba.event.search';
 angular.module('tba')
     .controller(_tbaEventSearchControllerId, ['$scope', 'tba.core.async', 'tba.core.log', 'tba.user.service', 'settings', 'tba.event.service', search]);
@@ -32,3 +33,5 @@ function search(vm, async, log, userService, settings, eventService) {
         vm.results = results;
     }
 }
+
+})();

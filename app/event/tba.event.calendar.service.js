@@ -1,4 +1,5 @@
-﻿
+﻿(function(){
+    
 var _tbaEventCalendarControllerId = 'tba.event.calendar.service';
 angular.module('tba')
     .factory(_tbaEventCalendarControllerId, ['$window', '$timeout',
@@ -91,16 +92,7 @@ function calendar($window, $timeout, async, log, dom, settings, userService, eve
             .then(loadEvent);
 
         function loadEvent(e) {
-            //_vm.alertMessage = 'A new appointment has been added to your calendar.';
-            //updateEventVm(e);
-            //_$cal.fullCalendar('renderEvent', e, true);
             _$cal.fullCalendar('unselect');
-            //_$cal.fullCalendar('render');
-            //$timeout(function () {
-            //    $window.location.href = '/#/day';
-            //});
-            // _$cal.fullCalendar('updateEvent', e);
-
             _$cal.fullCalendar('refetchEvents');
             log.logSuccess('A new appointment has been added to your calendar.', null, _tbaEventCalendarControllerId, true);
         }
@@ -150,10 +142,12 @@ function calendar($window, $timeout, async, log, dom, settings, userService, eve
     }
 
     function updateEventVm(event) {
+        $timeout(function(){
         _vm.event = event;
         _vm.event.timeLabel = eventService.getEventTimeLabel(event, 'h:mm a');
         _vm.event.duration = eventService.getEventDuration(event);
         _vm.$apply();
+        });
     }
 
     //  INCOMMING DOM
@@ -329,3 +323,5 @@ function calendar($window, $timeout, async, log, dom, settings, userService, eve
         _vm.lateMessage = null;
     }
 }
+
+})();

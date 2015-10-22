@@ -1,4 +1,6 @@
-﻿angular.module('tba')
+﻿(function(){
+
+    angular.module('tba')
     .factory('tba.core.log', ['$log', logFactory]);
 
 /********************************************************************/
@@ -93,3 +95,5 @@ function logFactory($log) {
     //    };
     //}
 }
+
+})();

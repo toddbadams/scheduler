@@ -1,3 +1,4 @@
+(function(){
 
 var _tbaUserServiceId = 'tba.user.service';
 angular.module('tba')
@@ -148,3 +149,4 @@ function userService(async, array, fakes, log, projectService) {
     };
 
 }
+})();

@@ -1,4 +1,5 @@
-﻿var _tbaProjectControllerId = 'tba.project.controller';
+﻿(function(){
+var _tbaProjectControllerId = 'tba.project.controller';
 angular.module('tba')
     .controller(_tbaProjectControllerId, ['tba.core.async', 'tba.core.log', 'tba.project.service', projectCntrl]);
 
@@ -28,3 +29,4 @@ function projectCntrl(async, log, projectService) {
         log.log('Updated view model ', data, _tbaProjectControllerId, false);
     }
 }
+})();

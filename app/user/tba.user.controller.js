@@ -1,4 +1,5 @@
-﻿
+﻿(function(){
+
 var _tbaUserControllerId = 'tba.user';
 angular.module('tba')
     .controller(_tbaUserControllerId, ['tba.core.async', 'tba.core.log', 'tba.user.service', 'settings', user]);
@@ -27,3 +28,4 @@ function user(async, log, userService, settings) {
     }
 
 }
+})();

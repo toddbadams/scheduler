@@ -1,4 +1,5 @@
-﻿var _tbaShellControllerId = 'tba.shell';
+﻿(function(){
+var _tbaShellControllerId = 'tba.shell';
 angular.module('tba')
         .controller(_tbaShellControllerId, ['$rootScope', 'tba.core.spin', 'tba.core.async', 'settings', 'tba.user.service', shell]);
 
@@ -68,3 +69,4 @@ function shell($rootScope, spin, async, settings, userService) {
         return r1.config.nav.order - r2.config.nav.order;
     }
 }
+})();
